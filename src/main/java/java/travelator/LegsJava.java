@@ -1,6 +1,7 @@
 package java.travelator;
 
 import java.time.Duration;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,8 +30,17 @@ public class LegsJava {
 
 
 class Leg{
+    private final String description;
+    private final ZonedDateTime plannedStart;
+    private final ZonedDateTime plannedEnd;
+
+    Leg(String description, ZonedDateTime plannedStart, ZonedDateTime plannedEnd) {
+        this.description = description;
+        this.plannedStart = plannedStart;
+        this.plannedEnd = plannedEnd;
+    }
 
     public Duration getPlannedDuration() {
-        return null;
+        return Duration.between(plannedStart, plannedEnd);
     }
 }
