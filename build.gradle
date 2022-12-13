@@ -1,0 +1,39 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "1.7.21"
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_11
+java.targetCompatibility = JavaVersion.VERSION_11
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.1"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher:1.4.2"
+}
+
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    kotlinOptions{
+        jvmTarget = "11"
+        javaParameters = true
+        freeCompilerArgs = ["-Xjvm-default=all"]
+    }
+}
+
+test {
+    useJUnitPlatform {
+        includeEngines "junit-jupiter"
+    }
+    testLogging {
+        events "skipped", "failed"
+    }
+}
