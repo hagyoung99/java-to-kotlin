@@ -1,4 +1,4 @@
-package java.travelator;
+package travelator;
 
 import travelator.EmailAddress;
 
