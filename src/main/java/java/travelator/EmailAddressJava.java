@@ -3,7 +3,7 @@ package java.travelator;
 import java.util.Objects;
 
 public class EmailAddressJava {
-    private final String localPart; //1 : 값은 불변, 따라서 필드를 final 로 선언한다.
+    private final String localPart; /*1 : 값은 불변, 따라서 필드를 final 로 선언한다.*/
     private final String domain;    //1
 
     public static EmailAddressJava parse(String value){ //2 : parse[문자열을 파싱해 EmailAddress 를 만드는 정적 패터리 메서드] 으로 주 생성자를 호출한다.
